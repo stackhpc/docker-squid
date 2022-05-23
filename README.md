@@ -27,7 +27,7 @@ Based on the Squid container by [sameersbn](https://github.com/sameersbn/docker-
 - Uses a disk cache (4 GB) in `/var/spool/squid`
 - Configures for logging to files under `/var/log/squid`
 - Raises the RAM cache to 768 MB (default is 256 MB)
-- Raises the maximum object size to 16 MB (default is 512 KB)
+- Raises the maximum object size to 64 MB (default is 512 KB)
 
 ## Contributing
 
