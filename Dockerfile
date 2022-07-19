@@ -1,4 +1,4 @@
-FROM rockylinux:latest
+FROM rockylinux:8.6
 LABEL maintainer=StackHPC
 
 ENV SQUID_VERSION=4.15 \
