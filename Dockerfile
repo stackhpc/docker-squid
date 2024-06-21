@@ -1,7 +1,7 @@
-FROM rockylinux:8.6
+FROM rockylinux:9
 LABEL maintainer=StackHPC
 
-ENV SQUID_VERSION=4.15 \
+ENV SQUID_VERSION=5.5 \
     SQUID_CACHE_DIR=/var/spool/squid \
     SQUID_LOG_DIR=/var/log/squid \
     SQUID_USER=squid
