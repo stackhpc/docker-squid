@@ -47,9 +47,11 @@ jobs:
             type=raw,value=latest,enable={{is_default_branch}}
         
       - name: Build and push Docker image
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v7
         with:
           context: .
+          build-args: |
+            SQUID_VERSION=${{ github.ref_type == 'tag' && github.ref_name || '' }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
