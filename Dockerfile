@@ -11,7 +11,7 @@ RUN dnf install -y \
     squid-${SQUID_VERSION}
 
 COPY squid.conf /etc/squid/squid.conf
-RUN chown root.squid /etc/squid/squid.conf
+RUN chown root:squid /etc/squid/squid.conf
 RUN chmod 0640 /etc/squid/squid.conf
 
 COPY entrypoint.sh /sbin/entrypoint.sh
