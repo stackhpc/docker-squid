@@ -1,4 +1,4 @@
-FROM rockylinux:9
+FROM quay.io/rockylinux/rockylinux:10
 LABEL maintainer=StackHPC
 
 ENV SQUID_VERSION=5.5 \
