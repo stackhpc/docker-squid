@@ -1,17 +1,20 @@
-FROM rockylinux:9
+FROM quay.io/rockylinux/rockylinux:10
 LABEL maintainer=StackHPC
 
-ENV SQUID_VERSION=5.5 \
-    SQUID_CACHE_DIR=/var/spool/squid \
+ARG SQUID_VERSION=""
+
+ENV SQUID_CACHE_DIR=/var/spool/squid \
     SQUID_LOG_DIR=/var/log/squid \
     SQUID_USER=squid
 
-RUN dnf install -y \
-    which \
-    squid-${SQUID_VERSION}
+RUN if [[ -z "${SQUID_VERSION}" ]]; then \
+      dnf install -y which squid; \
+    else \
+      dnf install -y which squid-${SQUID_VERSION}; \
+    fi
 
 COPY squid.conf /etc/squid/squid.conf
-RUN chown root.squid /etc/squid/squid.conf
+RUN chown root:squid /etc/squid/squid.conf
 RUN chmod 0640 /etc/squid/squid.conf
 
 COPY entrypoint.sh /sbin/entrypoint.sh
